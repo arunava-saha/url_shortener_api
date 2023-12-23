@@ -13,7 +13,7 @@ const generateShortURL = async (req, res) => {
       redirectURL: body.url,
     });
 
-    return res.status(200).json({ id: shortID });
+    return res.status(200).json({ id: shortID, originalUrl: body.url });
   } catch (err) {
     console.log(err);
   }

@@ -3,6 +3,7 @@ const DB = require("./config/db");
 const urlRoute = require("./routes/url");
 const userRoute = require("./routes/user");
 const cookie = require("cookie-parser");
+const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 8001;
@@ -10,6 +11,7 @@ const port = process.env.PORT || 8001;
 DB(process.env.DB).then(() => console.log("Mongodb connected"));
 app.use(express.json());
 app.use(cookie());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.status(200).json("Home Page");
